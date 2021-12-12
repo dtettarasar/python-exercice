@@ -19,6 +19,14 @@ def display_menu(separator):
     else:
         if choix.isdigit() and int(choix) in range(1,5):
             print("ok")
+            if choix == "1":
+                print("option 1")
+            elif choix == "2":
+                print("option 2")
+            elif choix == "3":
+                print("option 3")
+            elif choix == "4":
+                print("option 4")
         else:
             print("Veuillez saisir une option valide")
         display_menu(True)
