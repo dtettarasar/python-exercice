@@ -1,3 +1,5 @@
+course_list = []
+
 def display_menu(separator):
     menu_str = """Choisissez parmi les 5 options suivantes :
 1: Ajouter un élément à la liste
@@ -7,7 +9,9 @@ def display_menu(separator):
 5: Quitter la liste"""
 
     if separator:
+        print("")
         print("------------------------")
+        print("")
         print(menu_str)
     else:
         print(menu_str)
@@ -18,7 +22,6 @@ def display_menu(separator):
         print("A bientôt !")
         return False
     elif choix.isdigit() and int(choix) in range(1,5):
-        print("ok")
         if choix == "1":
             add_element()
         elif choix == "2":
@@ -33,6 +36,10 @@ def display_menu(separator):
 
 def add_element():
     print("vous avez choisi l'option 1 : Ajouter un élément à la liste")
+    element_to_add = input("Entrez le nom d'un élément à ajouter à la liste : ")
+    course_list.append(element_to_add)
+    print(f"L'élément {element_to_add} à bien été ajouté à la liste.")
+    print(course_list)
 
 def remove_element():
     print("vous avez choisi l'option 2 : Retirer un élément de la liste")
