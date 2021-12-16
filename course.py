@@ -48,6 +48,8 @@ def remove_element():
     if element_to_remove in course_list:
         course_list.remove(element_to_remove)
         print(f"L'élément {element_to_remove} à bien été retiré de la liste.")
+    else:
+        print("Cet élément n'est pas dans la liste")
 
 def display_list():
     print("")
