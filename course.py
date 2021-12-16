@@ -42,6 +42,10 @@ def add_element():
 
 def remove_element():
     print("vous avez choisi l'option 2 : Retirer un élément de la liste")
+    element_to_remove = input("Entrez le nom d'un élément à retirer de la liste : ")
+    if element_to_remove in course_list:
+        course_list.remove(element_to_remove)
+        print(f"L'élément {element_to_remove} à bien été retiré de la liste.")
 
 def display_list():
     print("vous avez choisi l'option 3 : Afficher la liste")
