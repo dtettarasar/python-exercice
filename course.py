@@ -35,20 +35,23 @@ def display_menu(separator):
     display_menu(True)
 
 def add_element():
-    print("vous avez choisi l'option 1 : Ajouter un élément à la liste")
+    print("")
+    print("Vous avez choisi l'option 1 : Ajouter un élément à la liste")
     element_to_add = input("Entrez le nom d'un élément à ajouter à la liste : ")
     course_list.append(element_to_add)
     print(f"L'élément {element_to_add} à bien été ajouté à la liste.")
 
 def remove_element():
-    print("vous avez choisi l'option 2 : Retirer un élément de la liste")
+    print("")
+    print("Vous avez choisi l'option 2 : Retirer un élément de la liste")
     element_to_remove = input("Entrez le nom d'un élément à retirer de la liste : ")
     if element_to_remove in course_list:
         course_list.remove(element_to_remove)
         print(f"L'élément {element_to_remove} à bien été retiré de la liste.")
 
 def display_list():
-    print("vous avez choisi l'option 3 : Afficher la liste")
+    print("")
+    print("Vous avez choisi l'option 3 : Afficher la liste")
     print("Voici le contenu de votre liste : ")
     for i, item in enumerate(course_list):
         print(f"{i + 1}. {item}")
