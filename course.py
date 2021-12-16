@@ -19,6 +19,7 @@ def display_menu(separator):
     choix = input("Votre choix : ")
 
     if choix == "5":
+        print("")
         print("A bientôt !")
         return False
     elif choix.isdigit() and int(choix) in range(1,5):
@@ -54,11 +55,26 @@ def remove_element():
 def display_list():
     print("")
     print("Vous avez choisi l'option 3 : Afficher la liste")
-    print("Voici le contenu de votre liste : ")
-    for i, item in enumerate(course_list):
-        print(f"{i + 1}. {item}")
+    if not course_list:
+        print("Votre liste est vide !")
+    else:
+        print("Voici le contenu de votre liste : ")
+        for i, item in enumerate(course_list):
+            print(f"{i + 1}. {item}")
 
 def empty_list():
-    print("vous avez choisi l'option 4 : Vider la liste")
+    print("Vous avez choisi l'option 4 : Vider la liste")
+    confirmation_message = """Etes vous sûr de vouloir vider la liste ?
+    1: Oui
+    2: Non
+    """
+
+    if not course_list:
+        print("Votre liste est vide !")
+        return False
+
+    print(confirmation_message)
+    choix = input("Votre choix : ")
+
 
 display_menu(False)
