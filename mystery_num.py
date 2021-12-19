@@ -22,3 +22,7 @@ while essai != 0:
             break
 
         essai -= 1
+
+        if essai == 0:
+            print(f"Dommage ! Le nombre mystère était {num_to_find}.")
+            print("Fin du jeu.")
