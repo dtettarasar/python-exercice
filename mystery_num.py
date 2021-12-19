@@ -1,7 +1,9 @@
+import random
 print("--- le jeu du nombre mystère :) ---")
 
 essai = const_essai = 5
-num_to_find = 75
+num_to_find = random.randint(0,100)
+# print(f"Random Number : {num_to_find}.")
 
 while essai != 0:
     print(f"Il te reste {essai} essai(s)")
