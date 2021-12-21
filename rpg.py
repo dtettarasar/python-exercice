@@ -26,7 +26,15 @@ def attack():
     print("--------------------------------")
 
 def use_potion():
-    print("vous utilisez une potion !")
+
+    global player_rem_potions
+
+    if player_rem_potions != 0:
+        print("Vous utilisez une potion !")
+        player_rem_potions -= 1
+    else:
+        print("Vous n'avez plus de potions.")
+
     print("--------------------------------")
 
 
