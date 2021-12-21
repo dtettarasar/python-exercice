@@ -11,7 +11,16 @@ def player_choice():
 
     if choice == "1":
         attack()
-        player_choice()
+
+        if player_health == 0 and enemy_health == 0:
+            print("Match nul.")
+        elif player_health == 0:
+            print("L'ennemi a gagné !")
+        elif enemy_health == 0:
+            print("Vous avez gagné !")
+        else:
+            player_choice()
+
     elif choice == "2":
         use_potion()
         player_choice()
