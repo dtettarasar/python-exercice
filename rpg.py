@@ -48,9 +48,18 @@ def attack():
 def use_potion():
 
     global player_rem_potions
+    global player_health
+    potion_health = random.randint(15, 50)
 
     if player_rem_potions != 0:
-        print("Vous utilisez une potion !")
+        print(f"Vous utilisez une potion : la potion vous donne {potion_health} points de vie.")
+        player_health = player_health + potion_health if player_health + potion_health < 50 else 50
+
+        if player_health == 50:
+            print("Vous avez récupéré vos 50 points de vie !")
+        else:
+            print(f"Vous avez maintenant {player_health} points de vie.")
+
         player_rem_potions -= 1
     else:
         print("Vous n'avez plus de potions.")
