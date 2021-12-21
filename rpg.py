@@ -18,11 +18,19 @@ def player_choice():
 
 def attack():
 
+    global player_health
+    global enemy_health
+
     player_attack = random.randint(5,10)
     enemy_attack = random.randint(5,15)
 
-    print(f"player attack: {player_attack}")
-    print(f"enemy attack: {enemy_attack}")
+    player_health = player_health - enemy_attack if player_health - enemy_attack > 0 else 0
+    enemy_health = enemy_health - player_attack if enemy_health - player_attack > 0 else 0
+
+    print(f"Vous avez infligé {player_attack} points de dégâts à l'ennemi.")
+    print(f"L'ennemi vous a infligé {enemy_attack} points de dégâts.")
+    print(f"Vous avez {player_health} point(s) de vie.")
+    print(f"L'ennemi a {enemy_health} point(s) de vie.")
     print("--------------------------------")
 
 def use_potion():
