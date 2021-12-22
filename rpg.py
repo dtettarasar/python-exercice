@@ -68,8 +68,7 @@ def use_potion():
         player_rem_potions -= 1
     else:
         print("Vous n'avez plus de potions.")
-
-    print("--------------------------------")
+        print("--------------------------------")
 
 
 player_choice()
