@@ -54,18 +54,20 @@ def use_potion():
     potion_health = random.randint(15, 50)
 
     if player_rem_potions != 0:
+        player_rem_potions -= 1
         print(f"Vous utilisez une potion : la potion vous donne {potion_health} points de vie.")
+        print(f"Il vous reste {player_rem_potions} potions.")
         player_health = player_health + potion_health if player_health + potion_health < 50 else 50
 
         if player_health == 50:
             print("Vous avez récupéré vos 50 points de vie !")
         else:
             print(f"Vous avez maintenant {player_health} points de vie.")
+        attack(True)
 
         print("Vous passez votre tour...")
         attack(True)
 
-        player_rem_potions -= 1
     else:
         print("Vous n'avez plus de potions.")
         print("--------------------------------")
