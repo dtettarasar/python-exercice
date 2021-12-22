@@ -10,7 +10,7 @@ def player_choice():
         choice = input("Souhaitez-vous attaquer (1) ou utiliser une potion (2) ? ")
 
     if choice == "1":
-        attack()
+        attack(False)
 
         if player_health == 0 and enemy_health == 0:
             print("Match nul.")
@@ -28,7 +28,7 @@ def player_choice():
         use_potion()
         player_choice()
 
-def attack():
+def attack(potion_used):
 
     global player_health
     global enemy_health
@@ -36,10 +36,12 @@ def attack():
     player_attack = random.randint(5,10)
     enemy_attack = random.randint(5,15)
 
-    player_health = player_health - enemy_attack if player_health - enemy_attack > 0 else 0
-    enemy_health = enemy_health - player_attack if enemy_health - player_attack > 0 else 0
+    if not potion_used:
+        enemy_health = enemy_health - player_attack if enemy_health - player_attack > 0 else 0
+        print(f"Vous avez infligé {player_attack} points de dégâts à l'ennemi.")
 
-    print(f"Vous avez infligé {player_attack} points de dégâts à l'ennemi.")
+    player_health = player_health - enemy_attack if player_health - enemy_attack > 0 else 0
+
     print(f"L'ennemi vous a infligé {enemy_attack} points de dégâts.")
     print(f"Vous avez {player_health} point(s) de vie.")
     print(f"L'ennemi a {enemy_health} point(s) de vie.")
@@ -59,6 +61,9 @@ def use_potion():
             print("Vous avez récupéré vos 50 points de vie !")
         else:
             print(f"Vous avez maintenant {player_health} points de vie.")
+
+        print("Vous passez votre tour...")
+        attack(True)
 
         player_rem_potions -= 1
     else:
