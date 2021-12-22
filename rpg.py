@@ -12,14 +12,14 @@ def player_choice():
     if choice == "1":
         attack(False)
 
-        if player_health == 0 and enemy_health == 0:
-            print("Match nul.")
+        if enemy_health == 0:
+            print("Vous avez gagné !")
             print("Fin du jeu.")
         elif player_health == 0:
             print("L'ennemi a gagné !")
             print("Fin du jeu.")
-        elif enemy_health == 0:
-            print("Vous avez gagné !")
+        elif player_health == 0 and enemy_health == 0:
+            print("Match nul.")
             print("Fin du jeu.")
         else:
             player_choice()
