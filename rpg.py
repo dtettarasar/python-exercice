@@ -42,7 +42,9 @@ def attack(potion_used):
 
     player_health = player_health - enemy_attack if player_health - enemy_attack > 0 else 0
 
-    print(f"L'ennemi vous a infligé {enemy_attack} points de dégâts.")
+    if enemy_health != 0:
+        print(f"L'ennemi vous a infligé {enemy_attack} points de dégâts.")
+
     print(f"Vous avez {player_health} point(s) de vie.")
     print(f"L'ennemi a {enemy_health} point(s) de vie.")
     print("--------------------------------")
