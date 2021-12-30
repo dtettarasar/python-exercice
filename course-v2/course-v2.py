@@ -5,6 +5,8 @@ course_list = []
 
 def check_json_file():
 
+    global course_list
+
     # var pour obtenir la relative path
     dirname = os.path.dirname(__file__)
     filename_path = os.path.join(dirname, 'course-list.json')
@@ -19,7 +21,8 @@ def check_json_file():
         with open(filename_path, "w") as f:
             json.dump(list(), f)
     else:
-        print("file exist")
+        with open(filename_path, "r") as f:
+            course_list = json.load(f)
 
 
 
@@ -105,6 +108,6 @@ def empty_list():
     else:
         return False
 
-# display_menu(False)
-
 check_json_file()
+
+display_menu(False)
