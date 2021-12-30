@@ -52,7 +52,7 @@ def display_menu(separator):
     if choix == "5":
 
         with open(filename_path, "w") as f:
-            json.dump(course_list, f, indent=4)
+            json.dump(course_list, f, indent=4, ensure_ascii=False)
 
         print("")
         print("A bientôt !")
