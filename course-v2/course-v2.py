@@ -3,13 +3,15 @@ import json
 
 course_list = []
 
+# var pour obtenir la relative path
+dirname = os.path.dirname(__file__)
+filename_path = os.path.join(dirname, 'course-list.json')
+
+
 def check_json_file():
 
     global course_list
-
-    # var pour obtenir la relative path
-    dirname = os.path.dirname(__file__)
-    filename_path = os.path.join(dirname, 'course-list.json')
+    global filename_path
 
     # print(filename_path)
 
@@ -34,6 +36,9 @@ def display_menu(separator):
 4: Vider la liste
 5: Quitter la liste"""
 
+    global filename_path
+    global course_list
+
     if separator:
         print("")
         print("------------------------")
@@ -45,10 +50,16 @@ def display_menu(separator):
     choix = input("Votre choix : ")
 
     if choix == "5":
+
+        with open(filename_path, "w") as f:
+            json.dump(course_list, f, indent=4)
+
         print("")
         print("A bientôt !")
         return False
+
     elif choix.isdigit() and int(choix) in range(1,5):
+
         if choix == "1":
             add_element()
         elif choix == "2":
@@ -57,6 +68,7 @@ def display_menu(separator):
             display_list()
         elif choix == "4":
             empty_list()
+
     else:
         print("Veuillez saisir une option valide.")
     display_menu(True)
