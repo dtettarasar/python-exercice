@@ -9,15 +9,17 @@ def check_json_file():
     dirname = os.path.dirname(__file__)
     filename_path = os.path.join(dirname, 'course-list.json')
 
-    print(filename_path)
+    # print(filename_path)
 
     check_file_exist = os.path.isfile(filename_path)
 
-    print(check_file_exist)
+    # print(check_file_exist)
 
     if not check_file_exist:
         with open(filename_path, "w") as f:
-            json.dump(list(range(10)), f)
+            json.dump(list(), f)
+    else:
+        print("file exist")
 
 
 
