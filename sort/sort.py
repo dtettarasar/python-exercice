@@ -28,6 +28,16 @@ def read_file():
     for f in path_input.iterdir():
         print(f.name)
 
+    create_folder("Images")
+
+def create_folder(str):
+
+    global path_input
+
+    path_input_new_folder = path_input / str
+
+    print(path_input_new_folder)
+
 if not path_input.exists():
     print("Le chemin indiqué n'existe pas.")
 
