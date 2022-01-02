@@ -21,14 +21,50 @@ path_input = Path(input("Indiquez le chemin du dossier à analyser: "))
 
 def read_file():
 
+    musiques_formats = [
+        ".mp3", 
+        ".wav",
+        ".flac"
+    ]
+
+    videos_formats = [
+        ".avi",
+        ".mp4",
+        ".gif"
+    ]
+
+    images_formats = [
+        ".bmp",
+        ".png",
+        ".jpg"
+    ]
+
+    documents_formats = [
+        ".txt",
+        ".pptx",
+        ".csv",
+        ".xls",
+        ".odp",
+        ".pages"
+    ]
+
     global path_input
 
     print(path_input)
 
     for f in path_input.iterdir():
-        print(f.name)
 
-    create_folder("Images")
+        if f.suffix in musiques_formats: 
+            print(f"{f.name} => Déplacer dans Musiques")
+        elif f.suffix in videos_formats:
+            print(f"{f.name} => Déplacer dans Vidéos")
+        elif f.suffix in images_formats:
+            print(f"{f.name} => Déplacer dans Images")
+        elif f.suffix in documents_formats:
+            print(f"{f.name} => Déplacer dans Documents")
+        else:
+            print(f"{f.name} => Déplacer dans Divers")
+
 
 def create_folder(str):
 
