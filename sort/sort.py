@@ -19,10 +19,20 @@ autres : Divers
 
 path_input = Path(input("Indiquez le chemin du dossier à analyser: "))
 
+def read_file():
+
+    global path_input
+
+    print(path_input)
+
+    for f in path_input.iterdir():
+        print(f.name)
+
 if not path_input.exists():
     print("Le chemin indiqué n'existe pas.")
+
 elif path_input.is_file():
     print("Vous devez indiquer un dossier et non un fichier.")
+
 elif path_input.is_dir():
-    print("ok")
-    print(path_input)
+    read_file()
