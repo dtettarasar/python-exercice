@@ -16,3 +16,13 @@ autres : Divers
 4 : si dossier de tri inexistant(s), créer le(s) dossier(s)
 5 : déplacer les fichiers dans les bons dossiers
 """
+
+path_input = Path(input("Indiquez le chemin du dossier à analyser: "))
+
+if not path_input.exists():
+    print("Le chemin indiqué n'existe pas.")
+elif path_input.is_file():
+    print("Vous devez indiquer un dossier et non un fichier.")
+elif path_input.is_dir():
+    print("ok")
+    print(path_input)
