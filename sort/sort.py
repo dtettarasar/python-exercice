@@ -17,9 +17,24 @@ autres : Divers
 5 : déplacer les fichiers dans les bons dossiers
 """
 
+# get the path from the user
 path_input = Path(input("Indiquez le chemin du dossier à analyser: "))
 
+# bool to check folder creation
+musiques_folder_created = False
+videos_folder_created = False
+images_folder_created = False
+documents_folder_created = False
+divers_folder_created = False
+
+
 def read_file():
+
+    global musiques_folder_created
+    global videos_folder_created
+    global images_folder_created
+    global documents_folder_created
+    global divers_folder_created
 
     musiques_formats = [
         ".mp3", 
@@ -54,15 +69,44 @@ def read_file():
 
     for f in path_input.iterdir():
 
-        if f.suffix in musiques_formats: 
+        if f.suffix in musiques_formats:
+
+            if not musiques_folder_created:
+                print("Créer le dossier Musiques")
+                musiques_folder_created = True
+
             print(f"{f.name} => Déplacer dans Musiques")
+
         elif f.suffix in videos_formats:
+
+            if not videos_folder_created:
+                print("Créer le dossier Vidéos")
+                videos_folder_created = True
+
             print(f"{f.name} => Déplacer dans Vidéos")
+
         elif f.suffix in images_formats:
+
+            if not images_folder_created:
+                print("Créer le dossier Images")
+                images_folder_created = True
+
             print(f"{f.name} => Déplacer dans Images")
+
         elif f.suffix in documents_formats:
+
+            if not documents_folder_created:
+                print("Créer le dossier Documents")
+                documents_folder_created = True
+
             print(f"{f.name} => Déplacer dans Documents")
+
         else:
+
+            if not divers_folder_created:
+                print("Créer le dossier Divers")
+                divers_folder_created = True
+
             print(f"{f.name} => Déplacer dans Divers")
 
 
