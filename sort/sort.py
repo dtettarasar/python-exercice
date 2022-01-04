@@ -30,12 +30,6 @@ divers_folder_name = "Divers"
 
 def read_file():
 
-    global musiques_folder_created
-    global videos_folder_created
-    global images_folder_created
-    global documents_folder_created
-    global divers_folder_created
-
     musiques_formats = [
         ".mp3", 
         ".wav",
