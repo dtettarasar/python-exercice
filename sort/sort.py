@@ -20,9 +20,6 @@ autres : Divers
 # get the path from the user
 path_input = Path(input("Indiquez le chemin du dossier à analyser: "))
 
-# bool vars to check folder creation
-musiques_folder_created = videos_folder_created = images_folder_created = documents_folder_created = divers_folder_created = False
-
 # var to store folders' names
 musiques_folder_name = "Musiques"
 videos_folder_name = "Videos"
@@ -74,59 +71,45 @@ def read_file():
 
         if f.suffix in musiques_formats:
 
-            if not musiques_folder_created:
-                print(f"Créer le dossier {musiques_folder_name}")
-                create_folder(musiques_folder_name)
-                musiques_folder_created = True
-
             print(f"{f.name} => Déplacer dans {musiques_folder_name}")
+            create_folder(musiques_folder_name)
 
         elif f.suffix in videos_formats:
 
-            if not videos_folder_created:
-                print(f"Créer le dossier {videos_folder_name}")
-                create_folder(videos_folder_name)
-                videos_folder_created = True
-
             print(f"{f.name} => Déplacer dans {videos_folder_name}")
+            create_folder(videos_folder_name)
 
         elif f.suffix in images_formats:
 
-            if not images_folder_created:
-                print(f"Créer le dossier {images_folder_name}")
-                create_folder(images_folder_name)
-                images_folder_created = True
-
             print(f"{f.name} => Déplacer dans {images_folder_name}")
+            create_folder(images_folder_name)
 
         elif f.suffix in documents_formats:
 
-            if not documents_folder_created:
-                print(f"Créer le dossier {documents_folder_name}")
-                create_folder(documents_folder_name)
-                documents_folder_created = True
-
             print(f"{f.name} => Déplacer dans {documents_folder_name}")
+            create_folder(documents_folder_name)
 
         else:
 
-            if not divers_folder_created:
-                print(f"Créer le dossier {divers_folder_name}")
-                create_folder(divers_folder_name)
-                divers_folder_created = True
-
             print(f"{f.name} => Déplacer dans {divers_folder_name}")
+            create_folder(divers_folder_name)
 
 
-def create_folder(str):
+def create_folder(folder_name):
 
     global path_input
 
-    path_input_new_folder = path_input / str
+    path_input_new_folder = path_input / folder_name
 
-    print(path_input_new_folder)
+    print(f"Chemin : {path_input_new_folder}")
+    print(f"Dossier existant ? {path_input_new_folder.exists()}")
 
-    path_input_new_folder.mkdir(exist_ok=True)
+    # check if the folder is created
+    if not path_input_new_folder.exists():
+
+        # create the path for the new folder
+        print(f"Créer le dossier {folder_name}")
+        path_input_new_folder.mkdir(exist_ok=True)
 
 if not path_input.exists():
     print("Le chemin indiqué n'existe pas.")
