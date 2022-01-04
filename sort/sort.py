@@ -67,7 +67,11 @@ def read_file():
 
     print(path_input)
 
-    for f in path_input.iterdir():
+    files_list = [f for f in path_input.iterdir() if f.is_file()]
+
+    print(f"{len(files_list)} fichiers à trier.")
+
+    for f in files_list:
 
         if f.suffix in musiques_formats:
 
