@@ -2,7 +2,7 @@ from pathlib import Path
 
 """
 Trier les fichiers contenus dans le dossier data selon les associations suivantes :
-mp3, wav, flac : Musique
+mp3, wav, flac : Musiques
 avi, mp4, gif : Videos
 bmp, png, jpg : Images
 txt, pptx, csv, xls, odp, pages : Documents
@@ -26,6 +26,13 @@ videos_folder_created = False
 images_folder_created = False
 documents_folder_created = False
 divers_folder_created = False
+
+# var to store folders' names
+musiques_folder_name = "Musiques"
+videos_folder_name = "Videos"
+images_folder_name = "Images"
+documents_folder_name = "Documents"
+divers_folder_name = "Divers"
 
 
 def read_file():
@@ -72,42 +79,42 @@ def read_file():
         if f.suffix in musiques_formats:
 
             if not musiques_folder_created:
-                print("Créer le dossier Musiques")
+                print(f"Créer le dossier {musiques_folder_name}")
                 musiques_folder_created = True
 
-            print(f"{f.name} => Déplacer dans Musiques")
+            print(f"{f.name} => Déplacer dans {musiques_folder_name}")
 
         elif f.suffix in videos_formats:
 
             if not videos_folder_created:
-                print("Créer le dossier Vidéos")
+                print(f"Créer le dossier {videos_folder_name}")
                 videos_folder_created = True
 
-            print(f"{f.name} => Déplacer dans Vidéos")
+            print(f"{f.name} => Déplacer dans {videos_folder_name}")
 
         elif f.suffix in images_formats:
 
             if not images_folder_created:
-                print("Créer le dossier Images")
+                print(f"Créer le dossier {images_folder_name}")
                 images_folder_created = True
 
-            print(f"{f.name} => Déplacer dans Images")
+            print(f"{f.name} => Déplacer dans {images_folder_name}")
 
         elif f.suffix in documents_formats:
 
             if not documents_folder_created:
-                print("Créer le dossier Documents")
+                print(f"Créer le dossier {documents_folder_name}")
                 documents_folder_created = True
 
-            print(f"{f.name} => Déplacer dans Documents")
+            print(f"{f.name} => Déplacer dans {documents_folder_name}")
 
         else:
 
             if not divers_folder_created:
-                print("Créer le dossier Divers")
+                print(f"Créer le dossier {divers_folder_name}")
                 divers_folder_created = True
 
-            print(f"{f.name} => Déplacer dans Divers")
+            print(f"{f.name} => Déplacer dans {divers_folder_name}")
 
 
 def create_folder(str):
