@@ -72,36 +72,45 @@ def read_file():
         if f.suffix in musiques_formats:
 
             print(f"{f.name} => Déplacer dans {musiques_folder_name}")
-            create_folder(musiques_folder_name)
+            folder = get_folder(musiques_folder_name)
+            print(f"Chemin : {folder}")
+            f.rename(folder / f.name)
 
         elif f.suffix in videos_formats:
 
             print(f"{f.name} => Déplacer dans {videos_folder_name}")
-            create_folder(videos_folder_name)
+            folder = get_folder(videos_folder_name)
+            print(f"Chemin : {folder}")
+            f.rename(folder / f.name)
 
         elif f.suffix in images_formats:
 
             print(f"{f.name} => Déplacer dans {images_folder_name}")
-            create_folder(images_folder_name)
+            folder = get_folder(images_folder_name)
+            print(f"Chemin : {folder}")
+            f.rename(folder / f.name)
 
         elif f.suffix in documents_formats:
 
             print(f"{f.name} => Déplacer dans {documents_folder_name}")
-            create_folder(documents_folder_name)
+            folder = get_folder(documents_folder_name)
+            print(f"Chemin : {folder}")
+            f.rename(folder / f.name)
 
         else:
 
             print(f"{f.name} => Déplacer dans {divers_folder_name}")
-            create_folder(divers_folder_name)
+            folder = get_folder(divers_folder_name)
+            print(f"Chemin : {folder}")
+            f.rename(folder / f.name)
 
 
-def create_folder(folder_name):
+def get_folder(folder_name):
 
     global path_input
 
     path_input_new_folder = path_input / folder_name
 
-    print(f"Chemin : {path_input_new_folder}")
     print(f"Dossier existant ? {path_input_new_folder.exists()}")
 
     # check if the folder is created
@@ -110,6 +119,8 @@ def create_folder(folder_name):
         # create the path for the new folder
         print(f"Créer le dossier {folder_name}")
         path_input_new_folder.mkdir(exist_ok=True)
+
+    return path_input_new_folder
 
 if not path_input.exists():
     print("Le chemin indiqué n'existe pas.")
