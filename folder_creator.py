@@ -7,11 +7,13 @@ def create_folder(path, folder_dict):
         
         first_level = path / key
         print(first_level)
+        first_level.mkdir(exist_ok=True)
         
         print("Sous dossiers à créer: ")
         for item in folder_dict[key]:
             second_level = first_level / item
             print(second_level)
+            second_level.mkdir(exist_ok=True)
         
         print("--------------------")
 
