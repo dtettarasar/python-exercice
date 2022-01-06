@@ -1,5 +1,10 @@
 from pathlib import Path
 
+def create_folder(path, folder_dict):
+    print("OK")
+    print(path)
+    print(folder_dict)
+
 # get the path from the user
 path_input = Path(input("Indiquez le chemin où créer les dossiers: "))
      
@@ -21,4 +26,4 @@ elif path_input.is_file():
     print("Vous devez indiquer un dossier et non un fichier.")
 
 elif path_input.is_dir():
-    print("OK")
+    create_folder(path_input, d)
