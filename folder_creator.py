@@ -2,8 +2,18 @@ from pathlib import Path
 
 def create_folder(path, folder_dict):
     print("OK")
-    print(path)
-    print(folder_dict)
+    print("Dossiers à créer: ")
+    for key in folder_dict:
+        
+        first_level = path / key
+        print(first_level)
+        
+        print("Sous dossiers à créer: ")
+        for item in folder_dict[key]:
+            second_level = first_level / item
+            print(second_level)
+        
+        print("--------------------")
 
 # get the path from the user
 path_input = Path(input("Indiquez le chemin où créer les dossiers: "))
