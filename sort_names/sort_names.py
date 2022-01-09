@@ -10,7 +10,7 @@ def read_file(file_input):
 
     content_list.sort()
 
-    print(content_list)
+    return content_list
 
 # get the path from the user
 path_input = Path(input("Indiquez le chemin du fichier txt à analyser: "))
@@ -26,5 +26,7 @@ elif path_input.is_file() and path_input.suffix != ".txt":
     print("Le fichier doit être au format .txt")
 
 else:
-    read_file(path_input)
+    list_names = read_file(path_input)
+
+    print(list_names)
 
