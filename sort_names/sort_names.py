@@ -20,8 +20,14 @@ def write_file(list_to_use):
 
     if not output_folder.exists():
         output_folder.mkdir()
+
+    list_name = "output_list.txt"
+
+    path_output_list = output_folder / list_name
+
+    print(path_output_list)
     
-    print(list_to_use)
+    # print(list_to_use)
 
 # get the path from the user
 path_input = Path(input("Indiquez le chemin du fichier txt à analyser: "))
