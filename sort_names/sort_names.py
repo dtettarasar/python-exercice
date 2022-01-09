@@ -8,6 +8,8 @@ def read_file(file_input):
     # convert to list
     content_list = content_clean.split(' ')
 
+    content_list.sort()
+
     print(content_list)
 
 # get the path from the user
