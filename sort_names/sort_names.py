@@ -1,8 +1,11 @@
 from pathlib import Path
 
 def read_file(file_input):
-    content = file_input.read_text().replace('\n', ' ')
-    print(content)
+    # read & str.replace to put each name on a separate line
+    content = file_input.read_text().replace('\n', ',').replace(',', '\n').replace('.', '\n')
+    # content = file_input.read_text().replace('\n', ',').replace('.', '\n')
+    content_list = content.split('\n')
+    print(content_list)
 
 # get the path from the user
 path_input = Path(input("Indiquez le chemin du fichier txt à analyser: "))
