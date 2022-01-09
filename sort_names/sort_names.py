@@ -14,6 +14,13 @@ def read_file(file_input):
 
 # create the text file with clean list names
 def write_file(list_to_use):
+
+    output_folder = Path("outputs")
+    # print(output_folder.exists())
+
+    if not output_folder.exists():
+        output_folder.mkdir()
+    
     print(list_to_use)
 
 # get the path from the user
