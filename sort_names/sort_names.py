@@ -12,6 +12,10 @@ def read_file(file_input):
 
     return content_list
 
+# create the text file with clean list names
+def write_file(list_to_use):
+    print(list_to_use)
+
 # get the path from the user
 path_input = Path(input("Indiquez le chemin du fichier txt à analyser: "))
 
@@ -26,7 +30,7 @@ elif path_input.is_file() and path_input.suffix != ".txt":
     print("Le fichier doit être au format .txt")
 
 else:
+    # if file is valid : generate the list and use it to create new text file
     list_names = read_file(path_input)
-
-    print(list_names)
+    write_file(list_names)
 
