@@ -16,7 +16,6 @@ def read_file(file_input):
 def write_file(list_to_use):
 
     output_folder = Path("outputs")
-    # print(output_folder.exists())
 
     if not output_folder.exists():
         output_folder.mkdir()
@@ -25,9 +24,7 @@ def write_file(list_to_use):
 
     path_output_list = output_folder / list_name
 
-    print(path_output_list)
-    
-    # print(list_to_use)
+    path_output_list.write_text('\n'.join(list_to_use))
 
 # get the path from the user
 path_input = Path(input("Indiquez le chemin du fichier txt à analyser: "))
