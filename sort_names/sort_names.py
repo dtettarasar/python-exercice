@@ -1,10 +1,13 @@
 from pathlib import Path
 
 def read_file(file_input):
-    # read & str.replace to put each name on a separate line
-    content = file_input.read_text().replace('\n', ',').replace(',', '\n').replace('.', '\n')
-    # content = file_input.read_text().replace('\n', ',').replace('.', '\n')
-    content_list = content.split('\n')
+    # clean the text file : replace dot & commas by spaces
+    content = file_input.read_text().replace(',', ' ').replace('.', ' ').replace('\n', ' ')
+    # delete additional spaces
+    content_clean = ' '.join(content.split())
+    # convert to list
+    content_list = content_clean.split(' ')
+
     print(content_list)
 
 # get the path from the user
