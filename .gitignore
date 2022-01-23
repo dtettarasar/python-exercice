@@ -1,4 +1,5 @@
 *.json
 sort/data
 crm/UserGenerator/env
+crm/UserGenerator/__pycache__
 *.idea
