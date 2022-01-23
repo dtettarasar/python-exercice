@@ -1,8 +1,12 @@
+"""Module to generates random usernames"""
 import faker
-# print(faker)
 
-# generate one random username
 def get_user():
+    """Generate one random username
+
+    Returns:
+        str: username
+    """
 
     fake_data = faker.Faker()
 
@@ -15,8 +19,16 @@ def get_user():
     # print(name_str)
     return name_str
 
-# generate a list of random usernames
 def get_users(quantity=1):
+
+    """Generate a list of usernames
+
+    Args:
+        quantity (int) : number of username to generate
+
+    Returns:
+        list[str]: usernames
+    """
 
     name_list = []
 
