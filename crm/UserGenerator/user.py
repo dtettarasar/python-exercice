@@ -1,5 +1,10 @@
 """Module to generates random usernames"""
 import faker
+import logging
+from pathlib import Path
+
+base_dir = Path(__file__).resolve().parent
+logging.basicConfig(filename=base_dir / "user.log", level=logging.INFO)
 
 def get_user():
     """Generate one random username
@@ -8,6 +13,7 @@ def get_user():
         str: username
     """
 
+    logging.info("Generating user.")
     fake_data = faker.Faker()
 
     get_f_name = fake_data.first_name()
@@ -29,6 +35,8 @@ def get_users(quantity=1):
     Returns:
         list[str]: usernames
     """
+
+    logging.info(f"Generating list of {quantity} user(s).")
 
     name_list = []
 
