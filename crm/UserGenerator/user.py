@@ -1,6 +1,7 @@
 import faker
 # print(faker)
 
+# generate one random username
 def get_user():
 
     fake_data = faker.Faker()
@@ -14,6 +15,7 @@ def get_user():
     # print(name_str)
     return name_str
 
+# generate a list of random usernames
 def get_users(quantity=1):
 
     name_list = []
@@ -22,3 +24,11 @@ def get_users(quantity=1):
         name_list.append(get_user())
 
     return name_list
+
+# Conditions to test functions when executing this module
+if __name__ == "__main__":
+    user = get_user()
+    print(user)
+
+    users_list = get_users(5)
+    print(users_list)
