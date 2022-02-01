@@ -15,12 +15,24 @@ class Voiture():
             self.essence -= essence_utilise
             if self.essence < 10:
                 print("Vous n'avez bientôt plus d'essence !")
-        self.afficher_reservoir()
+            self.afficher_reservoir()
+
+    def faire_le_plein(self):
+        self.essence = 100
+        print("Vous pouvez repartir !")
 
 if __name__ == "__main__":
+
     print("module voiture.py")
+
     test_voiture = Voiture()
     print(test_voiture.essence)
+
     test_voiture.afficher_reservoir()
+
     for i in range(25):
-        test_voiture.roule(85)
+        test_voiture.roule(100)
+
+    test_voiture.faire_le_plein()
+
+    test_voiture.roule(200)
