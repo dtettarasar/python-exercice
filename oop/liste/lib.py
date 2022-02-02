@@ -4,8 +4,8 @@ LOGGER = logging.getLogger()
 
 class List_obj(list):
 
-    def __init__(self, nom):
-        self.nom = nom
+    def __init__(self, name):
+        self.name = name
 
     def add_element(self, element):
 
@@ -28,17 +28,22 @@ class List_obj(list):
 
         return False
 
+    def display_list(self):
+        print(f'content of the list "{self.name}":')
+
+        for e in self:
+            print(f"- {e}")
+
 
 if __name__ == "__main__":
 
-    test_list = List_obj("course")
-    print(test_list.nom)
-
-    test_list_2 = List_obj("musique")
-    test_list_2.add_element("Square Hammer")
-    print(test_list_2)
-    test_list_2.add_element("Square Hammer")
-    test_list_2.remove_element("Square Hammer")
-    print(test_list_2)
+    test_list = List_obj("musique")
+    test_list.add_element("Square Hammer")
+    test_list.add_element("Square Hammer")
+    test_list.remove_element("Square Hammer")
+    test_list.add_element("Flying Whales")
+    test_list.add_element("The Four Horsemen")
+    test_list.add_element("Rust In Peace")
+    test_list.display_list()
 
 
