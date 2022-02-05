@@ -1,4 +1,8 @@
+import json
 import logging
+import os
+
+from constants import DATA_DIR
 
 LOGGER = logging.getLogger()
 
@@ -34,6 +38,17 @@ class List_obj(list):
         for e in self:
             print(f"- {e}")
 
+    def save_list(self):
+        path = os.path.join(DATA_DIR, f"{self.name}.json")
+        # print(path)
+        if not os.path.exists(DATA_DIR):
+            os.makedirs(DATA_DIR)
+
+        with open(path, "w") as f:
+            json.dump(self, f, indent=4)
+
+        return True
+
 
 if __name__ == "__main__":
 
@@ -44,6 +59,9 @@ if __name__ == "__main__":
     test_list.add_element("Flying Whales")
     test_list.add_element("The Four Horsemen")
     test_list.add_element("Rust In Peace")
+    test_list.add_element("Blow Your Trumpets Gabriel")
+    test_list.add_element("Freak on a Leash")
     test_list.display_list()
+    test_list.save_list()
 
 
