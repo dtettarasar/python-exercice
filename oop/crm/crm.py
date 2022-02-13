@@ -33,6 +33,10 @@ class User:
         for char in self.first_name + self.last_name:
             if char in spec_chars:
                 raise ValueError(f"Following name not valid: {self.full_name}")
+    
+    def _checks(self):
+        self._check_phone_number()
+        self._check_names()
 
 if __name__ == "__main__":
     from faker import Faker
@@ -48,6 +52,5 @@ if __name__ == "__main__":
             address = fake.address())
         print(user)
         # print(repr(user))
-        user._check_phone_number()
-        user._check_names()
+        user._checks()
         print("-" * 15)
