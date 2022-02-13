@@ -47,11 +47,22 @@ class User:
         self._check_phone_number()
         self._check_names()
     
+    def exists(self):
+        return bool(self.db_instance)
+
+    def delete(self) -> list[int]:
+        if self.exists():
+            return User.DB.remove(doc_ids=[self.db_instance.doc_id])
+        return []
+    
     def save(self, validate_data:bool = False) -> int:
         if validate_data:
             self._checks()
         
-        return User.DB.insert(self.__dict__)
+        if self.exists():
+            return -1
+        else:
+            return User.DB.insert(self.__dict__)
 
 
 def get_all_users_data():
@@ -78,9 +89,15 @@ if __name__ == "__main__":
 
     # Test db_instance
     martin = User("Martin", "Voisin")
+
+    william = User("William", "T")
+
     if not martin.db_instance:
         martin.save()
+    print(martin.exists())
     print(martin.db_instance)
+    print(william.exists())
+    print(martin.delete())
 
 """
     # Test user creation & insertion
