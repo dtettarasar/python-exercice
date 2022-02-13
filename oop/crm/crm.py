@@ -43,17 +43,37 @@ class User:
         self._check_phone_number()
         self._check_names()
     
-    def save(self, validate_data = False):
+    def save(self, validate_data:bool = False) -> int:
         if validate_data:
             self._checks()
         
-        User.DB.insert(self.__dict__)
+        return User.DB.insert(self.__dict__)
+
+
+def get_all_users_data():
+
+    """
+    for user in User.DB.all():
+        # unpacking the data
+        each_user = User(**user)
+        print(each_user)
+        print("-" * 15)
+    """
+
+    # comprehension list 
+    return[User(**user) for user in User.DB.all()]
 
 if __name__ == "__main__":
     from faker import Faker
     fake = Faker(locale="fr_FR")
     print("User class module")
     print("-" * 15)
+
+    # Test get all user
+    print(get_all_users_data())
+
+"""
+    # Test user creation & insertion
 
     for _ in range(4):
         user = User(
@@ -64,5 +84,9 @@ if __name__ == "__main__":
         print(user)
         # print(repr(user))
         # user._checks()
-        user.save()
+        print(user.save())
         print("-" * 15)
+
+"""
+
+
