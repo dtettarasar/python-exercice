@@ -1,6 +1,11 @@
 import re
 import string
+from tinydb import TinyDB
+from pathlib import Path
 class User:
+
+    DB = TinyDB(Path(__file__).resolve().parent / 'db.json', indent=4)
+
     def __init__(self, first_name: str, last_name: str, phone_number: str="", address: str=""):
         self.first_name = first_name
         self.last_name = last_name
