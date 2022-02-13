@@ -3,4 +3,5 @@ sort/data
 crm/UserGenerator/env
 crm/UserGenerator/__pycache__
 crm/UserGenerator/user.log
+oop/crm/env
 *.idea
