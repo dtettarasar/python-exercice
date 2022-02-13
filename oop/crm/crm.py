@@ -1,4 +1,5 @@
 import re
+import string
 class User:
     def __init__(self, first_name: str, last_name: str, phone_number: str="", address: str=""):
         self.first_name = first_name
@@ -22,6 +23,16 @@ class User:
 
         if len(phone_number) < 10 or not phone_number.isdigit():
             raise ValueError(f"Following phone number not valid: {self.phone_number}")
+    
+    def _check_names(self):
+        if not (self.first_name and self.last_name):
+            raise ValueError("Missing names")
+        
+        spec_chars = string.punctuation + string.digits
+
+        for char in self.first_name + self.last_name:
+            if char in spec_chars:
+                raise ValueError(f"Following name not valid: {self.full_name}")
 
 if __name__ == "__main__":
     from faker import Faker
@@ -38,4 +49,5 @@ if __name__ == "__main__":
         print(user)
         # print(repr(user))
         user._check_phone_number()
+        user._check_names()
         print("-" * 15)
