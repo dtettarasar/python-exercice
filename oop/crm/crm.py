@@ -42,6 +42,12 @@ class User:
     def _checks(self):
         self._check_phone_number()
         self._check_names()
+    
+    def save(self, validate_data = False):
+        if validate_data:
+            self._checks()
+        
+        User.DB.insert(self.__dict__)
 
 if __name__ == "__main__":
     from faker import Faker
@@ -57,5 +63,6 @@ if __name__ == "__main__":
             address = fake.address())
         print(user)
         # print(repr(user))
-        user._checks()
+        # user._checks()
+        user.save()
         print("-" * 15)
